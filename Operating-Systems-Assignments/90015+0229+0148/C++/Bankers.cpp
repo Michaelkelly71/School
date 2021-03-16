@@ -1,5 +1,7 @@
 //iostream is included to help with input and output in this file
 #include <iostream>
+
+//iomanip library helps with output manipulation and styling
 #include <iomanip>
 
 using namespace std;
@@ -107,6 +109,7 @@ public:
 
         if(count == p)
         {
+            //cout system is safe to the user
             cout << "\nThe system is in a safe state!!\n";
             cout << "Safe Sequence: < ";
             for( i = 0; i < p; i++)

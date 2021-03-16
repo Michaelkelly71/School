@@ -1,14 +1,20 @@
 # School
 School Programming stuf
 
-2 Directories so far
 
-Operating Systems and Data Structures and Algorithms
+3 Directories so far
+
+Projects, Operating Systems and Data Structures and Algorithms
+
+# Projects 
+Has its own Readme
 
 
 # Operating Systems
 Operating systmes has experiments from the OS Lab maual 
 Experiments 4 5 6 1 2 8 9
+
+
 
 # Algorithms
 Algorithms has code for:

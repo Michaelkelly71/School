@@ -1,10 +1,16 @@
+/**********************************************************
+Author:  Michael Kelly Osei
+Date:    25/03/21
+Program: A program to Implement Doubly Linked List (Family)
+**********************************************************/
+
 public class DoublyLinkList {
     
-    Node head;                 //Start of linked list
-    Node tail;               //End of linked list
+    Node head;                  //Start of linked dlist
+    Node tail;                  //End of linked dlist
 
     class Node{                 //Class for Node
-        Node next;              //Next element in the linked list
+        Node next;              //Next element in the linked dlist
         Node previous;
         String data;
 
@@ -22,23 +28,26 @@ public class DoublyLinkList {
     public static void main(String[] args){
 
         //creating an object of the class DoublyLinkList
-        DoublyLinkList list = new DoublyLinkList();
+        DoublyLinkList dlist = new DoublyLinkList();
 
         //using the instance created to call push method
-        list.push("Opanyin Okyere Osei");
-        list.add("Mr. Osei Kwaku");
-        list.add("Osei Michael Kelly");
+        dlist.push("Opanyin Okyere Osei");
+        dlist.add("Mr. Osei Kwaku");
+        dlist.add("Osei Michael Kelly");
 
-        System.out.println("\t\nKelly's Doubly Linked List");
-        System.out.println("\nLinked List After setting the head and adding nodes" );
-        list.display(list.head);
+        System.out.println("\n\tKelly's Doubly Linked List");//Titles Sorts
+        System.out.println("\n*******   Adding Nodes   *******");
+        System.out.println("\nLinked List After setting the head and adding nodes" );//Message
+        dlist.display(dlist.head);//Displaying the linked dlist
 
-        System.out.println("\n\nLinked List displayed in traverse");
-        list.displayTraverse(list.head);
+        dlist.deleteNode(dlist.head);
+        System.out.println("\n\n\n*******   Deleting Nodes   *******\n");
+        System.out.println("Linked List After deleting a node" );//Message
+        dlist.display(dlist.head);
     }
 
 
-    //method to add a new node to the next of existing nodes in the list
+    //method to add a new node to the next of existing nodes in the dlist
     private void add(String newData) {
         
         //creating an object of the Node class for usage 
@@ -47,7 +56,7 @@ public class DoublyLinkList {
         //head assigned to tail
         tail = head;
 
-        newNode.next = null;
+        newNode.next = null;//Making the next node null
 
         if (head == null) {             //If the Linked List is empty, then make the new node as head 
             newNode.previous = null;
@@ -55,7 +64,7 @@ public class DoublyLinkList {
             return;
         }
 
-        while(tail.next != null){       //traversing list
+        while(tail.next != null){       //traversing dlist
             tail = tail.next;
         }
 
@@ -65,13 +74,13 @@ public class DoublyLinkList {
         newNode.previous = tail;
     }
 
-    //Method Push: For placing or replacing an element at the head of the list  
+    //Method Push: For placing or replacing an element at the head of the dlist  
     public void push(String data){          //Argument passed and used as new data
 
         //creating an object of the Node class for usage 
         Node newNode = new Node(data);
 
-        //let the head of the node be assigned to first element in the linked list
+        //let the head of the node be assigned to first element in the linked dlist
         newNode.next = head;
 
         //make the node before the first node null to show that node.next is first
@@ -84,23 +93,50 @@ public class DoublyLinkList {
         head = newNode;         //new node is being assigned to head
     }
 
-    //method for display list
+    //method for display dlist
     public void display(Node node){
-        while(node != null){                //while condition check
-            System.out.print(" ---->>  " + node.data);    //print the data at that node
+        while(node != null){                                //while condition check
+            System.out.print(" ---->>  " + node.data);      //print the data at that node
             tail = node;
-            node = node.next;               //assign previous node to node
-            System.out.println();
+            node = node.next;                               //assign previous node to node
         }
-    }
 
-    //method for display list in traverse
-    public void displayTraverse(Node node){
-        while(tail != null){                //while condition check
-            System.out.print(" ---->>  " + tail.data);    //print the data at that node
-            tail = tail.previous;           //assign previous node to node
-            System.out.println();
+        System.out.println();
+        System.out.print("\nLinked List displayed in traverse\n");//Message
+        while(tail != null){                                //while condition check
+            System.out.print(" ---->>  " + tail.data);      //print the data at that node
+            tail = tail.previous;                           //assign previous node to node
         }
     }
     
+
+    //method to delete an node in the doubly linked list
+    public void deleteNode(Node delete){
+        
+        //if deleting the head node itself
+        while(head == null && delete == null){//If head item to be deleted are empty
+            return;
+        }
+
+        //deleting head node
+        if(head == delete){
+            head = delete.next;//make the next node of head the new head node
+        }
+
+        //deleting a node that isn't the TAIL node
+        if(delete.next != null){
+            //assign what you're deletings previous node to be the new previous node
+            // of what you're deletings next node
+            delete.next.previous = delete.previous; 
+        }
+
+        //deleting a node that isn't the HEAD node
+        if(delete.previous != null){
+            //assign what you're deletings next node to be the new next node
+            // of what you're deletings previous node
+            delete.previous.next = delete.next; 
+        }
+
+        return;
+    }
 }

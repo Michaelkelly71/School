@@ -1,6 +1,12 @@
+/**********************************************************
+Author:  Michael Kelly Osei
+Date:    30/02/21
+Program: A program to Implement Singly Linked List 
+**********************************************************/
+
 import java.util.*;
 
-public class LinkedList1 {
+public class mainLinkedList1 {
 
     /* Link list node */
 

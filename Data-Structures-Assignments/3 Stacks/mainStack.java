@@ -1,5 +1,11 @@
-//package com.company;
-public class Stack {
+/**********************************************************
+Author:  Michael Kelly Osei
+Date:    30/02/21
+Program: A program to Implement Stacks
+**********************************************************/
+
+
+public class mainStack {
     public static void main(String args[]){
 		try {
 

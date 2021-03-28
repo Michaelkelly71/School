@@ -1,5 +1,3 @@
-//package com.company;
-
 public class StackTest<S extends Object> {
 
     class Node<N> {
@@ -40,7 +38,6 @@ public class StackTest<S extends Object> {
         if(top == null){                            //checks conditions for true to continue or falls to skip 
             System.out.println("Adding: "+entry);
             top = newNode;                          //put new node on top as first since there wasn't a node already
-            //elements++;                           //
             
         }
 
@@ -49,7 +46,7 @@ public class StackTest<S extends Object> {
             newNode.entry = entry;      //assigns the new entry to new node
             newNode.next = top;         //the next of the top node becomes the new top
             top = newNode;              //new entry is assigned to the new top created
-            //elements++;
+            elements++;
         }
         
     }
@@ -106,7 +103,7 @@ public class StackTest<S extends Object> {
      * @return
      */
     public boolean isStackFull() {
-        if (stackSize != getEelemets()){
+        if (stackSize == getEelemets()){
             System.out.println("Stack is Full");
         }
         return true;

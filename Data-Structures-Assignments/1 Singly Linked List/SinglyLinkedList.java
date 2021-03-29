@@ -88,6 +88,8 @@ class SinglyLinkedList {
 
         // Unlink the node from linked list
         prev.next = temp.next;
+
+        deleteList(key);
     }
 
 

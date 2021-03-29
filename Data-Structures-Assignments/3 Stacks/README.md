@@ -5,7 +5,7 @@
 - Node<N> : A node class
 
 ## Implementation
--StackTest : A constructor with size of list node passed as an argument
+- StackTest : A constructor with size of list node passed as an argument
 - push : A method to add data to the stack.
 - pop : A method to remove data from the stack.
 - peek : A method that returns the last element or top element of the stack.

@@ -14,6 +14,7 @@
     Parameterized constructor with argument (size as size of Linked list)
     parameterized constructor with argument (Generic N entry as data added)
 
+
 ## Implementation
 
 ### Contains 7 Methods

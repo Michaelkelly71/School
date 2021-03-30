@@ -14,7 +14,7 @@ public class classQueues<T extends Object> {
             next = n;
         }
 
-        //function to set Link to next Node
+        //Method to set Link to next Node
         public void setLink(Node<N> n)
         {
             next = n; 

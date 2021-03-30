@@ -21,12 +21,12 @@
 ## Implementations
 
 ### Contains 6 Methods
-- ***insertAtLast*** : A method that adds entered data at the end of the list
-- ***insertAtFirst*** : A method that adds entered data at the beginning of the list
-- ***insertAfter*** : A method that adds entered data at a particular index of the list
-- ***deleteList*** : A method that deletes entered data at a particular index of the list
-- ***deleteRecursively** : A method that deletes a specified element recursively.
-- ***dsiplay*** : display all elements in the linked list.
+- **insertAtLast** : A method that adds entered data at the end of the list
+- **insertAtFirst** : A method that adds entered data at the beginning of the list
+- **insertAfter** : A method that adds entered data at a particular index of the list
+- **deleteList** : A method that deletes entered data at a particular index of the list
+- **deleteRecursively** : A method that deletes a specified element recursively.
+- **dsiplay** : display all elements in the linked list.
 
 ## How to run Code
 -   Open in prefered IDE

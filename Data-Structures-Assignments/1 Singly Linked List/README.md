@@ -10,7 +10,7 @@
 - **SinglyLinkedList** : Contains all implementations for this program 
 
 ## Main Method
-### public static void main() : this method runs the code and has the control on start
+    ### public static void main() : this method runs the code and has the control on start
 
 ## Constructor 
 ### Uses overloaded constructors

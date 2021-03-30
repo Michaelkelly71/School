@@ -2,7 +2,7 @@
 
 ## Classes
 - **mainStack** : Holds the main method
-- **StackTest<S>** : This class holds the methods for implementations with generics
+- **StackTest** : This class holds the methods for implementations with generics S
 - **mainStack** : Holds the main method
 - **Node<N>** : A node class with generics
 

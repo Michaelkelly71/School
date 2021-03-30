@@ -2,8 +2,8 @@
 ## Java
 ##############################
 .mtj.tmp/
-.class
-.jar
+*.class
+*.jar
 *.war
 *.ear
 *.nar

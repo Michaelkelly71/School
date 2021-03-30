@@ -16,14 +16,15 @@ Experiments 4 5 6 1 2 8 9
 
 
 
+
 # Algorithms
 Algorithms has code for:
-- Singly linked list,
-- Doubly linked 
-- Stacks
-- Queues
-- Dynamic Lists
-- Trees
+- [x] Singly linked list,
+- [x] Doubly linked 
+- [x] Stacks
+- [x] Queues
+- [] Dynamic Lists
+- [] Trees
 
 
 More to come soon 

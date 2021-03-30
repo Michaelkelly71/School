@@ -15,8 +15,8 @@ Operating systmes has experiments from the OS Lab maual
 - Experiments 4 5 6 1 2 8 9
 
 ### In Java and C++
-- [x] Java
-- [ ] C++
+- [ ] Java
+- [x] C++
 
 
 # Algorithms

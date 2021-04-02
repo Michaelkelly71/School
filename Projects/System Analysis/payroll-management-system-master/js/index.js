@@ -1,8 +1,8 @@
 function validateForm() {
     var un = document.loginform.usr.value;
     var pw = document.loginform.pword.value;
-    var username = "admin";
-    var password = "admin@123";
+    var username = "kelly";
+    var password = "kelly123";
     if ((un == username) && (pw == password)) {
         window.location = "payroll.php";
         return true;

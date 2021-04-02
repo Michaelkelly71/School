@@ -17,7 +17,8 @@ if(isset($_POST['update']))
 
     
 	// checking empty fields
-	if(empty($name) || empty($gender) || empty($email) || empty($city) || empty($birth_date) || empty($join_date) || empty($basic_pay) || empty($employee_id)) {	
+	if(empty($name) || empty($gender) || empty($email) || empty($city) || 
+    empty($birth_date) || empty($join_date) || empty($basic_pay) || empty($employee_id)) {	
 			
 		
 			echo "<font color='red'>field is empty.</font><br/>";
@@ -25,11 +26,13 @@ if(isset($_POST['update']))
 			
 	} else {	
 		//updating the table
-		$result = mysqli_query($conn, "UPDATE employee SET name='$name',gender='$gender',email='$email',birth_date='$birth_date',
-        ,join_date='$join_date',birth_date='$birth_date',annual_basic_pay='$basic_pay' WHERE employee_id=$employee_id");
+		$result = mysqli_query($conn, "UPDATE employee SET name='$name',
+        gender='$gender',email='$email',birth_date='$birth_date'
+        ,join_date='$join_date',birth_date='$birth_date',annual_basic_pay='$basic_pay' 
+        WHERE employee_id=$employee_id");
 		
 		//redirectig to the display page. In our case, it is 
-		header("Location: payroll.php#about");
+		header("Location: payroll.php#list");
 	}
 }
 ?>
@@ -40,7 +43,7 @@ $employee_id = $_GET['employee_id'];
 //selecting data associated with this particular id
 $result = mysqli_query($conn, "SELECT * FROM employee WHERE employee_id=$employee_id");
 
-// echo "<table><tr><th>ID</th><th>Name</th><th>E-mail</th><th>Gender</th><th>Birth Date</th><th>Website</th><th>Address</th><th>Province</th><th>Zip Code</th><th>City</th><th>Join Date</th><th>Annual Basic Pay</th></tr>";
+//echo "<table><tr><th>ID</th><th>Name</th><th>E-mail</th><th>Gender</th><th>Birth Date</th><th>Website</th><th>Address</th><th>Province</th><th>Zip Code</th><th>City</th><th>Join Date</th><th>Annual Basic Pay</th></tr>";
 
 while($res = mysqli_fetch_array($result))
 {
@@ -79,8 +82,8 @@ while($res = mysqli_fetch_array($result))
                 <ul>
                     <li><a href="payroll.php" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Home</span></a></li>
                     <li><a href="payroll.php#portfolio" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-user">Employee</span></a></li>
-                    <li><a href="payroll.php#about" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-th">list</span></a></li>
-                    <li><a href="payroll.php#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Pay Slip</span></a></li>
+                    <li><a href="payroll.php#list" id="list-link" class="skel-layers-ignoreHref"><span class="icon fa-th">list</span></a></li>
+                    <li><a href="payroll.php#payslip" id="payslip-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Pay Slip</span></a></li>
                 </ul>
             </nav>
 
@@ -95,7 +98,7 @@ while($res = mysqli_fetch_array($result))
     <div id="main">
             <div class="container">
 
-                <form class="well form-horizontal" action="edit.php" method="post" id="contact_form">
+                <form class="well form-horizontal" action="edit.php" method="post" id="payslip_form">
                     <fieldset>
 
                         <!-- Form Name -->
@@ -227,7 +230,6 @@ while($res = mysqli_fetch_array($result))
                             <label class="col-md-4 control-label"></label>
                             <div class="col-md-4">
                                 <button onclick="alert('Employee Update Successfull!')" input type="submit" name="update" value="Update">Update <span class="glyphicon glyphicon-send"></span></button>
-                                <button onclick="alert('Employee Added Successfully!')" input type="submit" name="submit" value="Submit">ADD <span class="glyphicon glyphicon-send"></span></button>
                             </div>
                         </div>
 

@@ -29,8 +29,8 @@
                 <ul>
                     <li><a href="#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Home</span></a></li>
                     <li><a href="#portfolio" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-user">Employee</span></a></li>
-                    <li><a href="#about" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-th">list</span></a></li>
-                    <li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Pay Slip</span></a></li>
+                    <li><a href="#list" id="list-link" class="skel-layers-ignoreHref"><span class="icon fa-th">list</span></a></li>
+                    <li><a href="#payslip" id="payslip-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Pay Slip</span></a></li>
                 </ul>
             </nav>
 

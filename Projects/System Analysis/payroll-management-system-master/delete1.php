@@ -29,8 +29,8 @@
                 <ul>
                     <li><a href="payroll.php" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Home</span></a></li>
                     <li><a href="payroll.php#portfolio" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-user">Employee</span></a></li>
-                    <li><a href="payroll.php#about" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-th">list</span></a></li>
-                    <li><a href="payroll.php#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Pay Slip</span></a></li>
+                    <li><a href="payroll.php#list" id="list-link" class="skel-layers-ignoreHref"><span class="icon fa-th">list</span></a></li>
+                    <li><a href="payroll.php#payslip" id="payslip-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Pay Slip</span></a></li>
                 </ul>
             </nav>
 
@@ -54,8 +54,8 @@
     <!-- Main -->
     <div id="main">
 
-        <!-- About Me -->
-        <section id="about" class="three">
+        <!-- list -->
+        <section id="list" class="three">
             <div class="container">
 
                 <header>
@@ -79,8 +79,6 @@
 ?>
             </div>
         </section>
-
-        <!-- Contact -->
         
 
     </div>

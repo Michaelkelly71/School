@@ -136,10 +136,12 @@
                     $conn->query($mysql2);
                    
                    if(!$success){
-                       die("couldn't enter data: ".$conn->error);
+                       die("couldn't enter data: ".$error_log);
+         
          
                    }else{
-                    header("Location:payroll.php#about");
+                        //redirectig to the display page. In our case, it is 
+		                header("Location: payroll.php#list");
                    }
                    $conn->close();         
 
@@ -174,8 +176,8 @@
                     <ul>
                         <li><a href="payroll.php" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Home</span></a></li>
                         <li><a href="payroll.php" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-user">Employee</span></a></li>
-                        <li><a href="payroll.php" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-th">list</span></a></li>
-                        <li><a href="payroll.php" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Pay Slip</span></a></li>
+                        <li><a href="payroll.php" id="list-link" class="skel-layers-ignoreHref"><span class="icon fa-th">list</span></a></li>
+                        <li><a href="payroll.php" id="payslip-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Pay Slip</span></a></li>
                     </ul>
                 </nav>
 
@@ -188,7 +190,7 @@
         <div id="main">
             <div class="container">
 
-                <form class="well form-horizontal" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" id="contact_form">
+                <form class="well form-horizontal" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" id="payslip_form">
                     <fieldset>
 
                         <!-- Form Name -->
@@ -317,7 +319,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label"></label>
                             <div class="col-md-4">
-                                <button onclick="alert('Employee Added Successfully!')" input type="submit" name="submit" value="Submit">ADD <span class="glyphicon glyphicon-send"></span></button>
+                                <button onclick="alert('Employee Added Successfully!')" input type="submit" name="submit" value="Submit" a href="">ADD <span class="glyphicon glyphicon-send"></span></button>
                             </div>
                         </div>
 

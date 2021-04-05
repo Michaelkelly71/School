@@ -32,7 +32,7 @@ if(isset($_POST['update']))
         WHERE employee_id=$employee_id");
 		
 		//redirectig to the display page. In our case, it is 
-		header("Location: payroll.php#list");
+		//header("Location: payroll.php#list");
 	}
 }
 ?>
@@ -229,7 +229,7 @@ while($res = mysqli_fetch_array($result))
                         <div class="form-group">
                             <label class="col-md-4 control-label"></label>
                             <div class="col-md-4">
-                                <button onclick="alert('Employee Update Successfull!')" input type="submit" name="update" value="Update">Update <span class="glyphicon glyphicon-send"></span></button>
+                                <button onclick="alert('Employee Update Successfull!')" input type="submit" name="update" value="Update" a href="payroll.php">Update <span class="glyphicon glyphicon-send"></span></button>
                             </div>
                         </div>
 

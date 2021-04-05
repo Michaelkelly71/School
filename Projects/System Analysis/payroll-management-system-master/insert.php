@@ -11,6 +11,7 @@
 
 <body>
 <?php
+include("connection.php");
      $gender="";
      $name="";
      $email="";
@@ -31,7 +32,7 @@
      $employee_idErr="";
      
 
-     if($_SERVER["REQUEST_METHOD"]=="POST"){
+    if($_SERVER["REQUEST_METHOD"]=="POST"){
         if (empty($_POST["name"])) {
             $nameErr = "Name is required";
           } else {
@@ -44,13 +45,13 @@
 
         
          
-            if (empty($_POST["gender"])) {
+        if (empty($_POST["gender"])) {
                 $genderErr = "Gender is required";
-              } else {
+            } else {
                 $gender = test_input($_POST["gender"]);
-         }
+        }
          
-         if(empty($_POST["email"])){
+        if(empty($_POST["email"])){
             $emailErr = "Email is required";
         } else {
           $email = test_input($_POST["email"]);
@@ -62,7 +63,7 @@
          
         
         
-            if (empty($_POST["city"])) {
+        if (empty($_POST["city"])) {
                 $cityErr = "city is required";
               } else {
                 $city = test_input($_POST["city"]);
@@ -95,7 +96,7 @@
             $join_date = test_input($_POST["join_date"]);
          }
    
-         include("connection.php");
+         
 
 
       
@@ -135,19 +136,20 @@
                     $mysql2="Update employee SET monthly_pay = (annual_basic_pay/6)- tax_amount;";
                     $conn->query($mysql2);
                    
-                   if(!$success){
+                   if(!$success && !$conn){
                        die("couldn't enter data: ".$error_log);
          
          
                    }else{
                         //redirectig to the display page. In our case, it is 
-		                header("Location: payroll.php#list");
+		                //header("Location: payroll.php#list");
+                        
                    }
                    $conn->close();         
 
 
 
-        }
+    }
         function test_input($data) {
             $data = trim($data);
             $data = stripslashes($data);
@@ -204,7 +206,6 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                                     <input name="employee_id" placeholder="Employee Id" class="form-control" type="text" value="<?php echo $employee_id; ?>">
-                                    <span style="color: red;">* <?php echo $employee_idErr;?></span>
                                 </div>
                             </div>
                         </div>
@@ -217,7 +218,6 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                                     <input name="name" placeholder="Employee Name" class="form-control" type="text" value="<?php echo $name; ?>">
-                                    <span style="color: red;">* <?php echo $nameErr;?></span>
                                 </div>
                             </div>
                         </div>
@@ -229,7 +229,6 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                                     <input name="birth_date" placeholder="Birth Date" class="form-control" type="date" value="<?php echo $birth_date; ?>">
-                                    <span style="color: red;">* <?php echo $birth_dateErr;?></span>
                                 </div>
                             </div>
                         </div>
@@ -241,7 +240,6 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                                     <input name="email" placeholder="E-Mail Address" class="form-control" type="text" value="<?php echo $email; ?>">
-                                    <span style="color: red;">* <?php echo $emailErr;?></span>
                                 </div>
                             </div>
                         </div>
@@ -258,10 +256,7 @@
                                     <option  >Please select your Gender</option>
                           <option>Male</option>
                           <option>Female</option>
-                          
-                          
                         </select>
-                                    <span style="color: red;">* <?php echo $genderErr;?></span>
                                 </div>
                             </div>
                         </div>
@@ -276,7 +271,6 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
                                     <input name="city" placeholder="city" class="form-control" type="text" value="<?php echo $city; ?>">
-                                    <span style="color: red;">* <?php echo $cityErr;?></span>
                                 </div>
                             </div>
                         </div>
@@ -291,7 +285,6 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
                                     <input name="join_date" placeholder="Joining Date" class="form-control" type="date" value="<?php echo $join_date; ?>">
-                                    <span style="color: red;">* <?php echo $join_dateErr;?></span>
                                 </div>
                             </div>
                         </div>
@@ -304,7 +297,6 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
                                     <input name="basic_pay" placeholder="Annual basic pay ($)" class="form-control" type="text" value="<?php echo $basic_pay; ?>">
-                                    <span style="color: red;">* <?php echo $basic_payErr;?></span>
                                 </div>
                             </div>
                         </div>
@@ -319,7 +311,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label"></label>
                             <div class="col-md-4">
-                                <button onclick="alert('Employee Added Successfully!')" input type="submit" name="submit" value="Submit" a href="">ADD <span class="glyphicon glyphicon-send"></span></button>
+                                <button onclick="document.location.href='payroll.php'" input type="submit" name="submit" value="Submit" >ADD <span class="glyphicon glyphicon-send"></span></button>
                             </div>
                         </div>
 

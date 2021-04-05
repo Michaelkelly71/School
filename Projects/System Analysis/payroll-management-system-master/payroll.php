@@ -71,27 +71,28 @@
                 <div class="row">
                     <div class="4u 12u$(mobile)">
                         <article class="item">
-                            <a href="insert.php" class="image fit"><img src="images/pic02.png" alt="" /></a>
+                            <a href="insert.php" class="image fit"><img src="images/pic02.png" alt="" />
                             <header>
-                                <h3>Insert</h3>
+                                <h3>Insert</h3></a>
                             </header>
+                            
                         </article>
 
                     </div>
                     <div class="4u 12u$(mobile)">
                         <article class="item">
-                            <a href="delete1.php" class="image fit"><img src="images/pic03.png" alt="" /></a>
+                            <a href="delete1.php" class="image fit"><img src="images/pic03.png" alt="" />
                             <header>
-                                <h3>Delete</h3>
+                                <h3>Delete</h3></a>
                             </header>
                         </article>
 
                     </div>
                     <div class="4u$ 12u$(mobile)">
                         <article class="item">
-                            <a href="edit1.php" class="image fit"><img src="images/pic04.png" alt="" /></a>
+                            <a href="edit1.php" class="image fit"><img src="images/pic04.png" alt="" />
                             <header>
-                                <h3>Update</h3>
+                                <h3>Update</h3></a>
                             </header>
                         </article>
 

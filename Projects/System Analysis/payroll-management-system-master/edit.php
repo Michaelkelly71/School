@@ -15,24 +15,27 @@ if(isset($_POST['update']))
     $join_date = mysqli_real_escape_string($conn, $_POST['join_date']);
     $basic_pay = mysqli_real_escape_string($conn, $_POST['basic_pay']);
 
-    
+    function Your_Function_Name(){
+        '<script>alert("Employee Updated Successfully!")</script>';
+    }
 	// checking empty fields
 	if(empty($name) || empty($gender) || empty($email) || empty($city) || 
     empty($birth_date) || empty($join_date) || empty($basic_pay) || empty($employee_id)) {	
 			
-		
-			echo "<font color='red'>field is empty.</font><br/>";
-	
-			
+			echo "<font color='red'>field(s) is empty.</font><br/>";
+            
+
 	} else {	
 		//updating the table
+        
 		$result = mysqli_query($conn, "UPDATE employee SET name='$name',
-        gender='$gender',email='$email',birth_date='$birth_date'
+        gender='$gender',email='$email',birth_date='$birth_date',city='$city'
         ,join_date='$join_date',birth_date='$birth_date',annual_basic_pay='$basic_pay' 
         WHERE employee_id=$employee_id");
 		
 		//redirectig to the display page. In our case, it is 
-		//header("Location: payroll.php#list");
+		header("Location: payroll.php#list");
+        Your_Function_Name();
 	}
 }
 ?>
@@ -229,7 +232,8 @@ while($res = mysqli_fetch_array($result))
                         <div class="form-group">
                             <label class="col-md-4 control-label"></label>
                             <div class="col-md-4">
-                                <button onclick="alert('Employee Update Successfull!')" input type="submit" name="update" value="Update" a href="payroll.php">Update <span class="glyphicon glyphicon-send"></span></button>
+                                <button onclick="alert('Employee Updated Successfully!')" input type="submit" name="update" value="Update" a href="payroll.php">Update <span class="glyphicon glyphicon-send"></span></button>
+                                
                             </div>
                         </div>
 

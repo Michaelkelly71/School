@@ -40,11 +40,11 @@
 
             <!-- Social Icons -->
             <ul class="icons">
-                <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                <li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-                <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-                <li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+                <li><a href="https://twitter.com/" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="https://www.facebook.com/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="https://github.com/" class="icon fa-github"><span class="label">Github</span></a></li>
+                <li><a href="http://dribble.com/" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+                <li><a href="https://mail.google.com/mail/u/0/#inbox" class="icon fa-envelope"><span class="label">Email</span></a></li>
             </ul>
 
         </div>
@@ -63,11 +63,14 @@
                 </header>
 
                 <p>List of all employees</p>
-                <?php
-//including the database connection file
-       include("connection.php");
-        $result = mysqli_query($conn, "SELECT * FROM employee ORDER BY employee_id ASC"); // using mysqli_query instead
-    //while($res = mysql_fetch_array($result)) { // mysql_fetch_array is deprecated, we need to use mysqli_fetch_array 
+<?php
+
+    //including the database connection file
+    include("connection.php");
+    
+    $result = mysqli_query($conn, "SELECT * FROM employee ORDER BY employee_id ASC"); // using mysqli_query instead
+    
+        //while($res = mysql_fetch_array($result)) { // mysql_fetch_array is deprecated, we need to use mysqli_fetch_array 
         echo "<table><tr><th>ID</th><th>Name</th><th>E-mail</th><th>City</th><th>Join Date</th><th>Annual Basic Pay</th><th>Edit</th></tr>";
 	while($res = mysqli_fetch_array($result)) { 		
         

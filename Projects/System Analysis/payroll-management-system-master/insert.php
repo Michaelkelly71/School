@@ -73,22 +73,6 @@
               } else {
                 $city = test_input($_POST["city"]);
          }
-         
-        if (empty($_POST["province"])) {
-            $provinceErr = "province is required";
-          } else {
-            $province = test_input($_POST["province"]);
-         }
-         
-         if(empty($_POST["website"])){
-            $website = "";
-        } else {
-          $website = test_input($_POST["website"]);
-          // check if URL address syntax is valid (this regular expression also allows dashes in the URL)
-          if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
-            $websiteErr = "Invalid URL"; 
-          }
-        }
       
          
         if (empty($_POST["basic_pay"])) {
@@ -103,11 +87,6 @@
             $employee_id = test_input($_POST["employee_id"]);
          }
          
-         if (empty($_POST["zip"])) {
-            $zip_codeErr = "zip is required";
-          } else {
-            $zip_code = test_input($_POST["zip"]);
-         }
         
          if (empty($_POST["birth_date"])) {
             $birth_dateErr = "Birth Date is required";
@@ -136,27 +115,29 @@
                    
         $sql="INSERT INTO `employee` ( `employee_id`,`name`, `gender`, `birth_date`, `city`, `email`, `join_date`, `annual_basic_pay`) 
         VALUES('$employee_id','$name','$gender','$birth_date','$city','$email','$join_date','$basic_pay')";
+                    $success = $conn->query($sql);
+
+                    $mysql3="Update employee SET tax = 15 where annual_basic_pay < 45000; ";
+                    $mysql4="UPDATE employee SET tax = 20.5 where annual_basic_pay > 45000 AND annual_basic_pay <= 91000; ";
+                    $mysql5="UPDATE employee SET tax = 26 where annual_basic_pay <= 142000 AND annual_basic_pay > 91000; ";
+                    $mysql6="UPDATE employee SET tax = 29 where annual_basic_pay <= 202800 AND annual_basic_pay > 142000; ";
+                    $mysql7="UPDATE employee SET tax = 33 where annual_basic_pay > 202800; ";
+                    $conn->query($mysql3);
+                    $conn->query($mysql4);
+                    $conn->query($mysql5);
+                    $conn->query($mysql6);
+                    $conn->query($mysql7);
+ 
+ 
+ 
                     
-
-        $mysql3="Update 'employee SET tax = 15 where annual_basic_pay < 45916; ";
-        $mysql4="Update employee SET tax = 20.5 where annual_basic_pay > 45916 AND annual_basic_pay < 91831; ";
-        $mysql5="Update employee SET tax = 26 where annual_basic_pay < 142353 AND annual_basic_pay > 91831; ";
-        $mysql6="Update employee SET tax = 29 where annual_basic_pay < 202800 AND annual_basic_pay > 142353; ";
-        $mysql7="Update employee SET tax = 33 where annual_basic_pay > 202800; ";
-        $conn->query($mysql3);
-        $conn->query($mysql4);
-        $conn->query($mysql5);
-        $conn->query($mysql6);
-        $conn->query($mysql7);
-
-
-        $my="Update employee SET tax_amount = (annual_basic_pay/12) * ((tax+100)/100);";
-        $conn->query($my);
-        $mysql2="Update employee SET monthly_pay = (annual_basic_pay/6)- tax_amount;";
-        $conn->query($mysql2);
+                    $my="UPDATE employee SET tax_amount = (annual_basic_pay/12) * ((tax+100)/100);";
+                    $conn->query($my);
+                    $mysql2="UPDATE employee SET monthly_pay = (annual_basic_pay/6)- tax_amount;";
+                    $conn->query($mysql2);
                    
-        if($conn->query($sql) === TRUE){
-
+        if($success) {
+                echo "hey";
         }else{
             die("couldn't enter data: ".mysqli_error($conn));
         }
@@ -201,13 +182,13 @@
             <div class="bottom">
 
                 <!-- Social Icons -->
-                <ul class="icons">
-                    <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                    <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                    <li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-                    <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-                    <li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
-                </ul>
+            <ul class="icons">
+                <li><a href="https://twitter.com/" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="https://www.facebook.com/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="https://github.com/" class="icon fa-github"><span class="label">Github</span></a></li>
+                <li><a href="http://dribble.com/" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+                <li><a href="https://mail.google.com/mail/u/0/#inbox" class="icon fa-envelope"><span class="label">Email</span></a></li>
+            </ul>
 
             </div>
 

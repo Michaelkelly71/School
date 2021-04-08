@@ -131,7 +131,7 @@
  
  
                     
-                    $my="UPDATE employee SET tax_amount = (annual_basic_pay/12) * ((tax+100)/100);";
+                    $my=mysqli_query($conn, "UPDATE employee SET tax_amount = (annual_basic_pay/12) * ((tax+100)/100) WHERE employee_id=$employee_id");
                     $conn->query($my);
                     $mysql2="UPDATE employee SET monthly_pay = (annual_basic_pay/6)- tax_amount;";
                     $conn->query($mysql2);

@@ -25,10 +25,10 @@ $employee_id = $_GET['employee_id'];
 //deleting the row from table
 $result = mysqli_query($conn, "Select * from employee WHERE employee_id=$employee_id");
 
-echo "<table><tr><th>ID</th><th>Name</th><th>E-mail</th><th>City</th><th>Join Date</th><th>Monthly Pay</th><th>Tax</th><th>Gender";
+echo "<table><tr><th>ID</th><th>Name</th><th>E-mail</th><th>City</th><th>Join Date</th><th>Monthly Pay</th><th>Tax</th><th>Tax Amount</th><th>Gender";
 while($res = mysqli_fetch_array($result)) { 		
     
-    echo "<tr><td>" . $res["employee_id"]. "</td><td>" . $res["name"]. "</td><td> " . $res["email"]. "</td><td> " . $res["city"]. "</td><td> " . $res["join_date"]. "</td><td> " . $res["monthly_pay"]." $". "</td><td> " . $res["tax"]." %". "</td><td>". $res["gender"];
+    echo "<tr><td>" . $res["employee_id"]. "</td><td>" . $res["name"]. "</td><td> " . $res["email"]. "</td><td> " . $res["city"]. "</td><td> " . $res["join_date"]. "</td><td> " . $res["monthly_pay"]." $". "</td><td> " . $res["tax"]." %". "</td><td> " . $res["tax_amount"]. "</td><td>". $res["gender"];
      }
     echo "</table>";
 //redirecting to the display page (index.php in our case)

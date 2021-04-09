@@ -1,15 +1,4 @@
-<html>
 
-<head>
-    <title>Insert an employee</title>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <link rel="stylesheet" href="assets/css/main.css" />
-  
-</head>
-
-<body>
 <?php
           $gender="";
           $name="";
@@ -129,17 +118,14 @@
                     $conn->query($mysql7);
  
  
- 
-                    
                     $my=mysqli_query($conn, "UPDATE employee SET tax_amount = (annual_basic_pay/12) * ((tax+100)/100) WHERE employee_id=$employee_id");
-                    $conn->query($my);
-                    $mysql2="UPDATE employee SET monthly_pay = (annual_basic_pay/6)- tax_amount;";
-                    $conn->query($mysql2);
+                    $mysql2=mysqli_query($conn, "UPDATE employee SET monthly_pay = (annual_basic_pay/6)- tax_amount WHERE employee_id=$employee_id");
+
                    
         if($success) {
                 echo "hey";
         }else{
-            die("couldn't enter data: ".mysqli_error($conn));
+            die("couldn't enter data. ".mysqli_error($success));
         }
         $conn->close();         
 
@@ -154,6 +140,18 @@
         
   ?>
   
+<html>
+
+<head>
+    <title>Insert an employee</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="assets/css/main.css" />
+  
+</head>
+
+<body>
         <!-- Header -->
         <div id="header">
 
@@ -316,7 +314,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label"></label>
                             <div class="col-md-4">
-                                <button onclick="alert('Employee Added Successfully!')"input type="submit" name="submit" value="Submit">ADD <span class="glyphicon glyphicon-send"></span></button>
+                                <button onclick="alert('Employee Added Successfully!')"input type="submit" name="submit" value="Submit" a href="payroll.php#list">ADD <span class="glyphicon glyphicon-send"></span></button></a>
                             </div>
                         </div>
 

@@ -18,6 +18,7 @@ if(isset($_POST['update']))
     function Your_Function_Name(){
         '<script>alert("Employee Updated Successfully!")</script>';
     }
+    
 	// checking empty fields
 	if(empty($name) || empty($gender) || empty($email) || empty($city) || 
     empty($birth_date) || empty($join_date) || empty($basic_pay) || empty($employee_id)) {	
@@ -32,10 +33,25 @@ if(isset($_POST['update']))
         gender='$gender',email='$email',birth_date='$birth_date',city='$city'
         ,join_date='$join_date',birth_date='$birth_date',annual_basic_pay='$basic_pay' 
         WHERE employee_id=$employee_id");
+
+        $mysql3="UPDATE employee SET tax = 15 where annual_basic_pay < 45000; ";
+        $mysql4="UPDATE employee SET tax = 20.5 where annual_basic_pay > 45000 AND annual_basic_pay <= 91000; ";
+        $mysql5="UPDATE employee SET tax = 26 where annual_basic_pay <= 142000 AND annual_basic_pay > 91000; ";
+        $mysql6="UPDATE employee SET tax = 29 where annual_basic_pay <= 202800 AND annual_basic_pay > 142000; ";
+        $mysql7="UPDATE employee SET tax = 33 where annual_basic_pay > 202800; ";
+        $conn->query($mysql3);
+        $conn->query($mysql4);
+        $conn->query($mysql5);
+        $conn->query($mysql6);
+        $conn->query($mysql7);
+
+
+        $my=mysqli_query($conn, "UPDATE employee SET tax_amount = (annual_basic_pay/12) * ((tax+100)/100) WHERE employee_id=$employee_id");
+        $mysql2=mysqli_query($conn, "UPDATE employee SET monthly_pay = (annual_basic_pay/6)- tax_amount WHERE employee_id=$employee_id");
 		
 		//redirectig to the display page. In our case, it is 
 		header("Location: payroll.php#list");
-        Your_Function_Name();
+        
 	}
 }
 ?>

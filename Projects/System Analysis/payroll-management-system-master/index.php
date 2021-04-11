@@ -6,7 +6,7 @@
     <title>Login Form</title>
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="js/index.js"></script>
+    <script src="index.js"></script>
 
 
 </head>

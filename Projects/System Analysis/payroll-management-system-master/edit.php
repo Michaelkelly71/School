@@ -109,7 +109,10 @@ while($res = mysqli_fetch_array($result))
         </div>
 
         
+        <div class="bottom">
+            <a href="index.php" h4>Logout / Back to login</a>
 
+        </div>
     </div>
 
 	
@@ -243,9 +246,11 @@ while($res = mysqli_fetch_array($result))
                         <!-- Success message -->
                         <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Employee Updated.</div>
                         
+                        
 
                         <!-- Button -->
                         <div class="form-group">
+
                             <label class="col-md-4 control-label"></label>
                             <div class="col-md-4">
                                 <button onclick="alert('Employee Updated Successfully!')" input type="submit" name="update" value="Update" a href="payroll.php">Update <span class="glyphicon glyphicon-send"></span></button>
@@ -257,6 +262,7 @@ while($res = mysqli_fetch_array($result))
                 </form>
                
             </div>
+            
         </div>
 
     <!-- Footer -->

@@ -38,17 +38,11 @@
 
         <div class="bottom">
 
-            <!-- Social Icons -->
-            <ul class="icons">
-                <li><a href="https://twitter.com/" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                <li><a href="https://www.facebook.com/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                <li><a href="https://github.com/" class="icon fa-github"><span class="label">Github</span></a></li>
-                <li><a href="http://dribble.com/" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-                <li><a href="https://mail.google.com/mail/u/0/#inbox" class="icon fa-envelope"><span class="label">Email</span></a></li>
-            </ul>
+        </div>
+        <div class="bottom">
+            <a href="index.php" h4>Logout / Back to login</a>
 
         </div>
-
     </div>
 
     <!-- Main -->

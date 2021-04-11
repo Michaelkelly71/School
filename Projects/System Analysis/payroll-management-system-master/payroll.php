@@ -36,7 +36,10 @@
 
         </div>
 
+        <div class="bottom">
+            <a href="index.php" h4>Logout / Back to login</a>
 
+        </div>
     </div>
 
     <!-- Main -->

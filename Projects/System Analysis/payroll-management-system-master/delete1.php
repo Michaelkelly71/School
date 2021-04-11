@@ -36,18 +36,10 @@
 
         </div>
 
-        <div class="bottom">
+            <div class="bottom">
+                <a href="index.php" h4>Logout / Back to login</a>
 
-            <!-- Social Icons -->
-            <ul class="icons">
-                <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                <li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-                <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-                <li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
-            </ul>
-
-        </div>
+            </div>
 
     </div>
 

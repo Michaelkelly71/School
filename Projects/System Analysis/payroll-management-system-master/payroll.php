@@ -150,7 +150,7 @@ include("connection.php");
         
         echo "<tr><td>" . $res["employee_id"]. "</td><td>" . $res["name"]. "</td><td> " . $res["email"]. "</td><td> " . $res["join_date"]. "</td><td> " . $res["annual_basic_pay"]." $". "</td><td> " . $res["monthly_pay"]." $". "</td><td> " . $res["tax"]." %". "</td><td> " . $res["tax_amount"]. "</td><td><a href=\"preview.php?employee_id=$res[employee_id]\">Preview</a></td></tr>";
          }
-        echo "</table>";
+        echo "</table>";a
 
 	
 ?>

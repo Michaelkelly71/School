@@ -26,7 +26,7 @@ CREATE TABLE `employee` (
   `employee_id` int NOT NULL,
   `name` varchar(30) NOT NULL,
   `gender` varchar(30) NOT NULL,
-  `birth_date` varchar(10) DEFAULT NULL,
+  `department` varchar(30) DEFAULT NULL,
   `city` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `join_date` varchar(10) DEFAULT NULL,

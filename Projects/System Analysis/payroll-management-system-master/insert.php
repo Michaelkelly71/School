@@ -3,7 +3,7 @@
           $gender="";
           $name="";
           $email="";
-          $birth_date="";
+          $department="";
           $city="";
           $join_date="";
           $basic_pay="";
@@ -13,7 +13,7 @@
           $genderErr="";
           $nameErr="";
           $emailErr="";
-          $birth_dateErr="";
+          $departmentErr="";
           $cityErr="";
           $join_dateErr="";
           $basic_payErr="";
@@ -77,10 +77,10 @@
          }
          
         
-         if (empty($_POST["birth_date"])) {
-            $birth_dateErr = "Birth Date is required";
+         if (empty($_POST["department"])) {
+            $departmentErr = "department Date is required";
           } else {
-            $birth_date = test_input($_POST["birth_date"]);
+            $department = test_input($_POST["department"]);
          }
         
          if (empty($_POST["join_date"])) {
@@ -96,14 +96,14 @@
         $name = $conn->real_escape_string($_POST["name"]);
         $gender = $conn->real_escape_string($_POST["gender"]);
         $join_date = $conn->real_escape_string($_POST["join_date"]);
-        $birth_date = $conn->real_escape_string($_POST["birth_date"]);
+        $department = $conn->real_escape_string($_POST["department"]);
         $employee_id = $conn->real_escape_string($_POST["employee_id"]);
         $basic_pay = $conn->real_escape_string($_POST["basic_pay"]);
         $city = $conn->real_escape_string($_POST["city"]);
         $email = $conn->real_escape_string($_POST["email"]);
                    
-        $sql="INSERT INTO `employee` ( `employee_id`,`name`, `gender`, `birth_date`, `city`, `email`, `join_date`, `annual_basic_pay`) 
-        VALUES('$employee_id','$name','$gender','$birth_date','$city','$email','$join_date','$basic_pay')";
+        $sql="INSERT INTO `employee` ( `employee_id`,`name`, `gender`, `department`, `city`, `email`, `join_date`, `annual_basic_pay`) 
+        VALUES('$employee_id','$name','$gender','$department','$city','$email','$join_date','$basic_pay')";
                     $success = $conn->query($sql);
 
                     $mysql3="Update employee SET tax = 15 where annual_basic_pay < 45000; ";
@@ -226,12 +226,12 @@
                         <!-- Text input-->
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Birth Date</label>
+                            <label class="col-md-4 control-label">Department</label>
                             <div class="col-md-4 inputGroupContainer">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                    <input name="birth_date" placeholder="Birth Date" class="form-control" type="date" value="<?php echo $birth_date; ?>">
-                                    <span style="color: red;">* <?php echo $birth_dateErr;?></span>
+                                    <input name="department" placeholder="Department" class="form-control" type="text" value="<?php echo $department; ?>">
+                                    <span style="color: red;">* <?php echo $departmentErr;?></span>
                                 </div>
                             </div>
                         </div>

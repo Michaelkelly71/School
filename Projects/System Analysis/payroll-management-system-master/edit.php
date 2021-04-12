@@ -11,17 +11,14 @@ if(isset($_POST['update']))
 	$gender = mysqli_real_escape_string($conn, $_POST['gender']);
 	$email = mysqli_real_escape_string($conn, $_POST['email']);	
     $city = mysqli_real_escape_string($conn, $_POST['city']);
-    $birth_date = mysqli_real_escape_string($conn, $_POST['birth_date']);
+    $department = mysqli_real_escape_string($conn, $_POST['department']);
     $join_date = mysqli_real_escape_string($conn, $_POST['join_date']);
     $basic_pay = mysqli_real_escape_string($conn, $_POST['basic_pay']);
 
-    function Your_Function_Name(){
-        '<script>alert("Employee Updated Successfully!")</script>';
-    }
     
 	// checking empty fields
 	if(empty($name) || empty($gender) || empty($email) || empty($city) || 
-    empty($birth_date) || empty($join_date) || empty($basic_pay) || empty($employee_id)) {	
+    empty($department) || empty($join_date) || empty($basic_pay) || empty($employee_id)) {	
 			
 			echo "<font color='red'>field(s) is empty.</font><br/>";
             
@@ -30,8 +27,8 @@ if(isset($_POST['update']))
 		//updating the table
         
 		$result = mysqli_query($conn, "UPDATE employee SET name='$name',
-        gender='$gender',email='$email',birth_date='$birth_date',city='$city'
-        ,join_date='$join_date',birth_date='$birth_date',annual_basic_pay='$basic_pay' 
+        gender='$gender',email='$email',department='$department',city='$city'
+        ,join_date='$join_date',department='$department',annual_basic_pay='$basic_pay' 
         WHERE employee_id=$employee_id");
 
         $mysql3="UPDATE employee SET tax = 15 where annual_basic_pay < 45000; ";
@@ -62,15 +59,13 @@ $employee_id = $_GET['employee_id'];
 //selecting data associated with this particular id
 $result = mysqli_query($conn, "SELECT * FROM employee WHERE employee_id=$employee_id");
 
-//echo "<table><tr><th>ID</th><th>Name</th><th>E-mail</th><th>Gender</th><th>Birth Date</th><th>Website</th><th>Address</th><th>Province</th><th>Zip Code</th><th>City</th><th>Join Date</th><th>Annual Basic Pay</th></tr>";
-
 while($res = mysqli_fetch_array($result))
 {
     $employee_id = $res['employee_id'];
 	$name = $res['name'];
 	$gender = $res['gender'];
     $email = $res['email'];
-    $birth_date = $res['birth_date'];
+    $department = $res['department'];
     $city = $res['city'];
     $join_date = $res['join_date'];
     $basic_pay = $res['annual_basic_pay'];
@@ -154,11 +149,11 @@ while($res = mysqli_fetch_array($result))
                         <!-- Text input-->
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Birth Date</label>
+                            <label class="col-md-4 control-label">Department</label>
                             <div class="col-md-4 inputGroupContainer">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                    <input name="birth_date"  class="form-control" type="date" value="<?php echo $birth_date; ?>">
+                                    <input name="department"  class="form-control" type="text" value="<?php echo $department; ?>">
                                     
                                 </div>
                             </div>

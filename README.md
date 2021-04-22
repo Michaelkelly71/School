@@ -6,13 +6,13 @@ School Project Programming stuf
 
 Graphics, Java, System Analysis
 
-# Java Project
+## Java Project
 Has its own Readme
 
-# Graphics Project
+## Graphics Project
 Has its own Readme
 
-# System Analysis Project
+## System Analysis Project
 Has its own Readme
 
 More to come soon 

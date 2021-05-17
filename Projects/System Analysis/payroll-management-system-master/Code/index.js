@@ -2,7 +2,7 @@ function validateForm() {
     var un = document.loginform.usr.value;
     var pw = document.loginform.pword.value;
     var username = "kelly";
-    var password = "kelly123";
+    var password = "a";
     var username1 = "carey";
     var password1 = "carey123";
     

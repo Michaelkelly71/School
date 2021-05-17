@@ -57,7 +57,7 @@ if(isset($_POST['update']))
 $employee_id = $_GET['employee_id'];
 
 //selecting data associated with this particular id
-$result = mysqli_query($conn, "SELECT * FROM employee WHERE employee_id=$employee_id");
+$result = mysqli_query($conn, "SELECT * FROM employee WHERE employee_id='$employee_id'");
 
 while($res = mysqli_fetch_array($result))
 {

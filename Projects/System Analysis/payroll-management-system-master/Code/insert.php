@@ -125,7 +125,7 @@
         if($success) {
                 echo "hey";
         }else{
-            die("couldn't enter data. ".mysqli_error($success));
+            die("couldn't enter data. ".mysqli_error($conn));
         }
         $conn->close();         
 

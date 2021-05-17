@@ -23,7 +23,7 @@
         $employee_id = $_GET['employee_id'];
 
         //selecting the row from table
-        $result = mysqli_query($conn, "Select * from employee WHERE employee_id=$employee_id");
+        $result = mysqli_query($conn, "Select * from employee WHERE employee_id='$employee_id'");
 
         echo "<table><tr><th>ID</th><th>Name</th><th>E-mail</th><th>Department</th><th>City</th><th>Join Date</th><th>Monthly Pay</th><th>Tax</th><th>Tax Amount</th><th>Gender";
         while($res = mysqli_fetch_array($result)) { 		
@@ -32,11 +32,11 @@
         }
             echo "</table>";
             
-            $name = mysqli_query($conn, "Select name from employee WHERE employee_id=$employee_id;");
-            $salary = mysqli_query($conn, "Select monthly_pay from employee WHERE employee_id=$employee_id;");
+            $name = mysqli_query($conn, "Select name from employee WHERE employee_id='$employee_id';");
+            $salary = mysqli_query($conn, "Select monthly_pay from employee WHERE employee_id='$employee_id';");
             
             while($res = mysqli_fetch_array($salary)){
-                echo ("\n\n\nPaying salary ".$res["monthly_pay"]." to employee above this and every month ");
+                echo ("Paying salary ".$res["monthly_pay"]." to employee above this and every month ");
             }
             
         ?>

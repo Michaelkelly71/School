@@ -51,7 +51,7 @@
             <div class="container">
 
                 <header>
-                    <h2>List</h2>
+                    <h2>Delete</h2>
                 </header>
 
                 <p>List of all employees</p>
@@ -60,10 +60,10 @@
        include("connection.php");
         $result = mysqli_query($conn, "SELECT * FROM employee ORDER BY employee_id ASC"); // using mysqli_query instead
     //while($res = mysql_fetch_array($result)) { // mysql_fetch_array is deprecated, we need to use mysqli_fetch_array 
-        echo "<table><tr><th>ID</th><th>Name</th><th>E-mail</th><th>City</th><th>Join Date</th><th>Annual Basic Pay</th><th>Del</th></tr>";
+        echo "<table><tr><th>ID</th><th>Name</th><th>E-mail</th><th>Bank(PBL)</th><th>Join Date</th><th>Annual Basic Pay</th><th>Del</th></tr>";
 	while($res = mysqli_fetch_array($result)) { 		
         
-        echo "<tr><td>" . $res["employee_id"]. "</td><td>" . $res["name"]. "</td><td> " . $res["email"]. "</td><td> " . $res["city"]. "</td><td> " . $res["join_date"]. "</td><td> " . $res["annual_basic_pay"]. "</td><td> <a href=\"delete.php?employee_id=$res[employee_id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td></tr>";
+        echo "<tr><td>" . $res["employee_id"]. "</td><td>" . $res["name"]. "</td><td> " . $res["email"]. "</td><td> " . $res["bank"]. "</td><td> " . $res["join_date"]. "</td><td> " ."GH₵ ". $res["annual_basic_pay"]. "</td><td> <a href=\"delete.php?employee_id=$res[employee_id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td></tr>";
          }
         echo "</table>";
 	

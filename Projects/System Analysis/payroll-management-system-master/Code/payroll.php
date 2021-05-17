@@ -120,10 +120,10 @@ include("connection.php");
 
  $result = mysqli_query($conn, "SELECT * FROM employee ORDER BY employee_id ASC"); // using mysqli_query instead
     //while($res = mysql_fetch_array($result)) { // mysql_fetch_array is deprecated, we need to use mysqli_fetch_array 
-        echo "<table><tr><th>ID</th><th>Name</th><th>E-mail</th><th>Department</th><th>City</th><th>Join Date</th><th>Annual Basic Pay</th></tr>";
+        echo "<table><tr><th>ID</th><th>Name</th><th>E-mail</th><th>Department</th><th>Bank(PBL)</th><th>Join Date</th><th>Annual Basic Pay</th></tr>";
 	while($res = mysqli_fetch_array($result)) { 		
         
-        echo "<tr><td>" . $res["employee_id"]. "</td><td>" . $res["name"]. "</td><td> " . $res["email"]. "</td><td> ". $res["department"]. "</td><td> " . $res["city"]. "</td><td> " . $res["join_date"]. "</td><td> " . $res["annual_basic_pay"]. "</td></tr>";
+        echo "<tr><td>" . $res["employee_id"]. "</td><td>" . $res["name"]. "</td><td> " . $res["email"]. "</td><td> ". $res["department"]. "</td><td> " . $res["bank"]. "</td><td> " . $res["join_date"]. "</td><td> " ."GH¢". $res["annual_basic_pay"]. "</td></tr>";
          }
         echo "</table>";
 	
@@ -145,10 +145,10 @@ include("connection.php");
 
      $result = mysqli_query($conn, "SELECT * FROM employee ORDER BY employee_id ASC"); // using mysqli_query instead
    
-        echo "<table><tr><th>ID</th><th>Name</th><th>Department</th><th>Join Date</th><th>Annual Basic Pay</th><th>Monthly Pay(after_tax)</th><th>Tax</th><th>Tax Amount</th><th>Single Out</th></tr>";
+        echo "<table><tr><th>ID</th><th>Name</th><th>Department</th><th>Join Date</th><th>Annual Basic Pay</th><th>Monthly Pay(after_tax)</th><th>Tax</th><th>Tax Amount</th><th>Preview</th></tr>";
 	while($res = mysqli_fetch_array($result)) { 		
         
-        echo "<tr><td>" . $res["employee_id"]. "</td><td>" . $res["name"]. "</td><td> " . $res["department"]. "</td><td> " . $res["join_date"]. "</td><td> " . $res["annual_basic_pay"]." $". "</td><td> " . $res["monthly_pay"]." $". "</td><td> " . $res["tax"]." %". "</td><td> " . $res["tax_amount"]. "</td><td><a href=\"preview.php?employee_id=$res[employee_id]\">Preview</a></td></tr>";
+        echo "<tr><td>" . $res["employee_id"]. "</td><td>" . $res["name"]. "</td><td> " . $res["department"]. "</td><td> " . $res["join_date"]. "</td><td> " ."GH¢". $res["annual_basic_pay"]. "</td><td> " ."GH¢ ". $res["monthly_pay"]. "</td><td> " . $res["tax"]."%". "</td><td> " ."GH¢". $res["tax_amount"]. "</td><td><a href=\"preview.php?employee_id=$res[employee_id]\">Pay Out</a></td></tr>";
          }
         echo "</table>";a
 

@@ -10,14 +10,14 @@ if(isset($_POST['update']))
 	$name = mysqli_real_escape_string($conn, $_POST['name']);
 	$gender = mysqli_real_escape_string($conn, $_POST['gender']);
 	$email = mysqli_real_escape_string($conn, $_POST['email']);	
-    $city = mysqli_real_escape_string($conn, $_POST['city']);
+    $bank = mysqli_real_escape_string($conn, $_POST['bank']);
     $department = mysqli_real_escape_string($conn, $_POST['department']);
     $join_date = mysqli_real_escape_string($conn, $_POST['join_date']);
     $basic_pay = mysqli_real_escape_string($conn, $_POST['basic_pay']);
 
     
 	// checking empty fields
-	if(empty($name) || empty($gender) || empty($email) || empty($city) || 
+	if(empty($name) || empty($gender) || empty($email) || empty($bank) || 
     empty($department) || empty($join_date) || empty($basic_pay) || empty($employee_id)) {	
 			
 			echo "<font color='red'>field(s) is empty.</font><br/>";
@@ -27,9 +27,9 @@ if(isset($_POST['update']))
 		//updating the table
         
 		$result = mysqli_query($conn, "UPDATE employee SET name='$name',
-        gender='$gender',email='$email',department='$department',city='$city'
+        gender='$gender',email='$email',department='$department',bank='$bank'
         ,join_date='$join_date',department='$department',annual_basic_pay='$basic_pay' 
-        WHERE employee_id=$employee_id");
+        WHERE employee_id='$employee_id'");
 
         $mysql3="UPDATE employee SET tax = 15 where annual_basic_pay < 45000; ";
         $mysql4="UPDATE employee SET tax = 20.5 where annual_basic_pay > 45000 AND annual_basic_pay <= 91000; ";
@@ -43,8 +43,8 @@ if(isset($_POST['update']))
         $conn->query($mysql7);
 
 
-        $my=mysqli_query($conn, "UPDATE employee SET tax_amount = (annual_basic_pay/12) * ((tax+100)/100) WHERE employee_id=$employee_id");
-        $mysql2=mysqli_query($conn, "UPDATE employee SET monthly_pay = (annual_basic_pay/6)- tax_amount WHERE employee_id=$employee_id");
+        $mysql1=mysqli_query($conn, "UPDATE employee SET tax_amount = (annual_basic_pay/12) * ((tax+100)/100) WHERE employee_id='$employee_id'");
+        $mysql2=mysqli_query($conn, "UPDATE employee SET monthly_pay = (annual_basic_pay/6)- tax_amount WHERE employee_id='$employee_id'");
 		
 		//redirectig to the display page. In our case, it is 
 		header("Location: payroll.php#list");
@@ -66,7 +66,7 @@ while($res = mysqli_fetch_array($result))
 	$gender = $res['gender'];
     $email = $res['email'];
     $department = $res['department'];
-    $city = $res['city'];
+    $bank = $res['bank'];
     $join_date = $res['join_date'];
     $basic_pay = $res['annual_basic_pay'];
 
@@ -198,11 +198,11 @@ while($res = mysqli_fetch_array($result))
                         <!-- Text input-->
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">City</label>
+                            <label class="col-md-4 control-label">Bank Account Number</label>
                             <div class="col-md-4 inputGroupContainer">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                                    <input name="city" class="form-control" type="text" value="<?php echo $city; ?>">
+                                    <input name="bank" class="form-control" type="text" value="<?php echo $bank; ?>">
                                     
                                 </div>
                             </div>

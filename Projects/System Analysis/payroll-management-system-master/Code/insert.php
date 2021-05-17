@@ -4,7 +4,7 @@
           $name="";
           $email="";
           $department="";
-          $city="";
+          $bank="";
           $join_date="";
           $basic_pay="";
           $employee_id="";
@@ -14,7 +14,7 @@
           $nameErr="";
           $emailErr="";
           $departmentErr="";
-          $cityErr="";
+          $bankErr="";
           $join_dateErr="";
           $basic_payErr="";
           $employee_idErr="";
@@ -57,10 +57,10 @@
          }
         
         
-            if (empty($_POST["city"])) {
-                $cityErr = "city is required";
+            if (empty($_POST["bank"])) {
+                $bankErr = "bank is required";
               } else {
-                $city = test_input($_POST["city"]);
+                $bank = test_input($_POST["bank"]);
          }
       
          
@@ -99,24 +99,26 @@
         $department = $conn->real_escape_string($_POST["department"]);
         $employee_id = $conn->real_escape_string($_POST["employee_id"]);
         $basic_pay = $conn->real_escape_string($_POST["basic_pay"]);
-        $city = $conn->real_escape_string($_POST["city"]);
+        $bank = $conn->real_escape_string($_POST["bank"]);
         $email = $conn->real_escape_string($_POST["email"]);
                    
-        $sql="INSERT INTO `employee` ( `employee_id`,`name`, `gender`, `department`, `city`, `email`, `join_date`, `annual_basic_pay`) 
-        VALUES('$employee_id','$name','$gender','$department','$city','$email','$join_date','$basic_pay')";
+        $sql="INSERT INTO `employee` ( `employee_id`,`name`, `gender`, `department`, `bank`, `email`, `join_date`, `annual_basic_pay`) 
+        VALUES('$employee_id','$name','$gender','$department','$bank','$email','$join_date','$basic_pay')";
                     $success = $conn->query($sql);
 
-                    $mysql3="Update employee SET tax = 15 where annual_basic_pay < 45000; ";
-                    $mysql4="UPDATE employee SET tax = 20.5 where annual_basic_pay > 45000 AND annual_basic_pay <= 91000; ";
-                    $mysql5="UPDATE employee SET tax = 26 where annual_basic_pay <= 142000 AND annual_basic_pay > 91000; ";
-                    $mysql6="UPDATE employee SET tax = 29 where annual_basic_pay <= 202800 AND annual_basic_pay > 142000; ";
-                    $mysql7="UPDATE employee SET tax = 33 where annual_basic_pay > 202800; ";
+                    $mysql3="UPDATE employee SET tax = 5 where annual_basic_pay <= 1000; ";
+                    $mysql4="UPDATE employee SET tax = 10 where annual_basic_pay > 1000 AND annual_basic_pay <= 3000; ";
+                    $mysql5="UPDATE employee SET tax = 15 where annual_basic_pay > 3000 AND annual_basic_pay <= 7000; ";
+                    $mysql6="UPDATE employee SET tax = 20 where annual_basic_pay > 7000 AND annual_basic_pay <= 10000; ";
+                    $mysql7="UPDATE employee SET tax = 20 where annual_basic_pay > 10000 AND annual_basic_pay <= 20000; ";
+                    $mysql8="UPDATE employee SET tax = 25 where annual_basic_pay > 20000; ";
+
                     $conn->query($mysql3);
                     $conn->query($mysql4);
                     $conn->query($mysql5);
                     $conn->query($mysql6);
                     $conn->query($mysql7);
- 
+                    $conn->query($mysql8);
  
                     $my=mysqli_query($conn, "UPDATE employee SET tax_amount = (annual_basic_pay/12) * ((tax+100)/100) WHERE employee_id=$employee_id");
                     $mysql2=mysqli_query($conn, "UPDATE employee SET monthly_pay = (annual_basic_pay/6)- tax_amount WHERE employee_id=$employee_id");
@@ -272,12 +274,12 @@
                         <!-- Text input-->
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">City</label>
+                            <label class="col-md-4 control-label">Bank Account Number</label>
                             <div class="col-md-4 inputGroupContainer">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                                    <input name="city" placeholder="city" class="form-control" type="text" value="<?php echo $city; ?>">
-                                    <span style="color: red;">* <?php echo $cityErr;?></span>
+                                    <input name="bank" placeholder="PBL Bank" class="form-control" type="text" value="<?php echo $bank; ?>">
+                                    <span style="color: red;">* <?php echo $bankErr;?></span>
                                 </div>
                             </div>
                         </div>
